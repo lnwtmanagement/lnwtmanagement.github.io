@@ -5,591 +5,464 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Model Recruitment — LNWT Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
 –gold: #C9A84C;
 –gold-light: #E8CC7A;
-–gold-dim: #8B6F2E;
+–gold-dim: #a07830;
 –black: #0A0A0A;
-–dark: #111111;
-–mid: #1A1A1A;
 –cream: #F5EFE0;
-–cream-dim: #D4C9A8;
-–white: #FAFAFA;
+–cream-dim: #c8b98a;
+–white: #FFFFFF;
 }
 
 body {
-background: var(–black);
-color: var(–cream);
-font-family: ‘Montserrat’, sans-serif;
-font-weight: 300;
+background: #0A0A0A;
+color: #F5EFE0;
+font-family: Georgia, ‘Times New Roman’, serif;
 min-height: 100vh;
 overflow-x: hidden;
 }
 
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.04’/%3E%3C/svg%3E”);
-pointer-events: none;
-z-index: 100;
-opacity: 0.4;
-}
-
 .page {
-max-width: 780px;
+max-width: 760px;
 margin: 0 auto;
-padding: 60px 40px 80px;
-position: relative;
+padding: 48px 24px 72px;
 }
 
 .frame {
 position: relative;
-border: 1px solid var(–gold-dim);
-padding: 60px 50px;
-background: linear-gradient(145deg, #111 0%, #0d0d0d 50%, #131313 100%);
-animation: fadeIn 1.2s ease forwards;
+border: 1px solid #a07830;
+padding: 52px 40px;
+background: #111111;
 }
 
-.frame::before, .frame::after {
-content: ‘’;
-position: absolute;
-width: 30px;
-height: 30px;
-border-color: var(–gold);
-border-style: solid;
-}
-.frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.frame::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.corner { position: absolute; width: 28px; height: 28px; border-color: #C9A84C; border-style: solid; }
+.corner.tl { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.corner.tr { top: -1px; right: -1px; border-width: 3px 3px 0 0; }
+.corner.bl { bottom: -1px; left: -1px; border-width: 0 0 3px 3px; }
+.corner.br { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
 
-.inner-frame::before, .inner-frame::after {
-content: ‘’;
-position: absolute;
-width: 30px;
-height: 30px;
-border-color: var(–gold);
-border-style: solid;
-}
-.inner-frame::before { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-.inner-frame::after  { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-
-.brand-section {
-text-align: center;
-margin-bottom: 40px;
-}
+.brand-section { text-align: center; margin-bottom: 36px; }
 
 .brand-eyebrow {
-font-family: ‘Montserrat’, sans-serif;
-font-weight: 500;
-font-size: 9px;
-letter-spacing: 6px;
-text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 16px;
-animation: slideDown 0.8s ease 0.3s both;
-}
-
-.brand-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: 56px;
-color: var(–white);
-line-height: 1;
-letter-spacing: 6px;
-animation: slideDown 0.8s ease 0.5s both;
-}
-
-.brand-name span {
-color: var(–gold);
-font-style: italic;
-}
-
-.brand-sub {
-font-size: 9px;
-letter-spacing: 8px;
-text-transform: uppercase;
-color: var(–cream-dim);
-margin-top: 10px;
-animation: slideDown 0.8s ease 0.7s both;
-}
-
-.divider {
-display: flex;
-align-items: center;
-gap: 16px;
-margin: 32px 0;
-animation: fadeIn 1s ease 0.9s both;
-}
-
-.divider-line {
-flex: 1;
-height: 1px;
-background: linear-gradient(to right, transparent, var(–gold-dim), transparent);
-}
-
-.divider-diamond {
-width: 6px;
-height: 6px;
-background: var(–gold);
-transform: rotate(45deg);
-flex-shrink: 0;
-}
-
-.hero {
-text-align: center;
-margin-bottom: 40px;
-animation: slideUp 0.9s ease 1s both;
-}
-
-.hero-label {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 9px;
 letter-spacing: 5px;
 text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 20px;
+color: #C9A84C;
+margin-bottom: 14px;
+}
+
+.brand-name {
+font-family: Georgia, serif;
+font-size: 52px;
+font-weight: normal;
+color: #FFFFFF;
+letter-spacing: 5px;
+line-height: 1;
+}
+
+.brand-name span { color: #E8CC7A; font-style: italic; }
+
+.brand-sub {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 9px;
+letter-spacing: 6px;
+text-transform: uppercase;
+color: #c8b98a;
+margin-top: 10px;
+}
+
+.divider { display: flex; align-items: center; gap: 14px; margin: 28px 0; }
+.divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, #a07830, transparent); }
+.divider-diamond { width: 7px; height: 7px; background: #C9A84C; transform: rotate(45deg); flex-shrink: 0; }
+
+.hero { text-align: center; margin-bottom: 36px; }
+
+.hero-label {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 9px;
+letter-spacing: 5px;
+text-transform: uppercase;
+color: #C9A84C;
+margin-bottom: 16px;
 }
 
 .hero-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 38px;
-font-weight: 300;
+font-family: Georgia, serif;
+font-size: 34px;
+font-weight: normal;
 font-style: italic;
-color: var(–white);
-line-height: 1.2;
-margin-bottom: 8px;
+color: #FFFFFF;
+line-height: 1.3;
+margin-bottom: 10px;
 }
 
-.hero-title strong {
-font-style: normal;
-font-weight: 600;
-color: var(–gold-light);
-}
+.hero-title strong { font-style: normal; font-weight: bold; color: #E8CC7A; }
 
 .hero-desc {
-font-size: 11px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
 letter-spacing: 2px;
-color: var(–cream-dim);
+color: #c8b98a;
 text-transform: uppercase;
 }
 
-.content {
-animation: slideUp 0.9s ease 1.2s both;
-}
-
 .opening-letter {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 18px;
-font-weight: 300;
-color: var(–cream);
+font-family: Georgia, serif;
+font-size: 17px;
+color: #F0E8D0;
 line-height: 1.9;
 margin-bottom: 32px;
 text-align: justify;
 }
 
-.opening-letter em {
-color: var(–gold-light);
-font-style: italic;
-}
+.opening-letter em { color: #E8CC7A; font-style: italic; }
 
 .section-title {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 9px;
 letter-spacing: 5px;
 text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 20px;
+color: #C9A84C;
+margin-bottom: 18px;
 }
 
 .benefits-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 16px;
-margin-bottom: 36px;
+gap: 14px;
+margin-bottom: 32px;
 }
 
 .benefit-item {
-border: 1px solid rgba(201, 168, 76, 0.2);
-padding: 20px;
-background: rgba(201, 168, 76, 0.03);
-transition: all 0.3s ease;
+border: 1px solid rgba(201,168,76,0.25);
+padding: 18px;
+background: rgba(201,168,76,0.05);
 }
 
-.benefit-item:hover {
-border-color: rgba(201, 168, 76, 0.5);
-background: rgba(201, 168, 76, 0.07);
-}
-
-.benefit-icon { font-size: 18px; margin-bottom: 10px; }
+.benefit-icon { font-size: 20px; margin-bottom: 10px; }
 
 .benefit-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 16px;
-font-weight: 600;
-color: var(–white);
+font-family: Georgia, serif;
+font-size: 15px;
+font-weight: bold;
+color: #FFFFFF;
 margin-bottom: 6px;
 }
 
 .benefit-desc {
-font-size: 10.5px;
-color: var(–cream-dim);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px;
+color: #c8b98a;
 line-height: 1.6;
-letter-spacing: 0.3px;
 }
 
 .requirements {
-background: rgba(201, 168, 76, 0.05);
-border-left: 2px solid var(–gold);
-padding: 24px 28px;
-margin-bottom: 36px;
+background: rgba(201,168,76,0.06);
+border-left: 3px solid #C9A84C;
+padding: 22px 26px;
+margin-bottom: 32px;
 }
 
-.req-list {
-list-style: none;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 10px;
-}
+.req-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
 .req-list li {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 11px;
-color: var(–cream-dim);
+color: #D4C9A8;
 display: flex;
 align-items: flex-start;
-gap: 10px;
+gap: 8px;
 line-height: 1.5;
 }
 
-.req-list li::before {
-content: ‘◆’;
-color: var(–gold);
-font-size: 7px;
-margin-top: 3px;
-flex-shrink: 0;
-}
+.req-list li::before { content: ‘◆’; color: #C9A84C; font-size: 7px; margin-top: 3px; flex-shrink: 0; }
 
-.process { margin-bottom: 40px; }
+.process { margin-bottom: 36px; }
 
-.steps { display: flex; flex-direction: column; gap: 0; }
-
-.step {
-display: flex;
-align-items: flex-start;
-gap: 20px;
-padding: 16px 0;
-border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-}
-
+.step { display: flex; align-items: flex-start; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.15); }
 .step:last-child { border-bottom: none; }
 
 .step-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 32px;
-font-weight: 300;
-color: rgba(201, 168, 76, 0.25);
+font-family: Georgia, serif;
+font-size: 30px;
+font-weight: normal;
+color: rgba(201,168,76,0.35);
 line-height: 1;
-min-width: 40px;
+min-width: 38px;
 }
 
 .step-title {
-font-size: 12px;
-font-weight: 500;
-color: var(–white);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11px;
+font-weight: bold;
+color: #FFFFFF;
 letter-spacing: 1px;
 margin-bottom: 4px;
 text-transform: uppercase;
 }
 
 .step-desc {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 11px;
-color: var(–cream-dim);
+color: #c8b98a;
 line-height: 1.6;
 }
 
-/* CTA */
 .cta-section {
 text-align: center;
-padding: 40px 0 10px;
-border-top: 1px solid rgba(201, 168, 76, 0.2);
+padding: 36px 0 10px;
+border-top: 1px solid rgba(201,168,76,0.25);
 }
 
 .cta-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 28px;
-font-weight: 300;
+font-family: Georgia, serif;
+font-size: 26px;
+font-weight: normal;
 font-style: italic;
-color: var(–white);
-margin-bottom: 12px;
+color: #FFFFFF;
+margin-bottom: 8px;
 }
 
 .cta-subtitle {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 10px;
 letter-spacing: 2px;
-color: var(–cream-dim);
+color: #c8b98a;
 text-transform: uppercase;
-margin-bottom: 28px;
+margin-bottom: 26px;
 }
 
-/* WhatsApp Button */
 .wa-btn {
 display: inline-flex;
 align-items: center;
 gap: 12px;
 background: #25D366;
-border: none;
-color: #fff;
-font-family: ‘Montserrat’, sans-serif;
-font-size: 11px;
-font-weight: 600;
-letter-spacing: 3px;
+color: #FFFFFF;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight: bold;
+letter-spacing: 2px;
 text-transform: uppercase;
-padding: 18px 44px;
-cursor: pointer;
+padding: 18px 40px;
 text-decoration: none;
-transition: all 0.3s ease;
-margin-bottom: 16px;
+border-radius: 2px;
+transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.wa-btn:hover {
-background: #1ebe5d;
-transform: translateY(-2px);
-box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-}
+.wa-btn:hover { background: #1aab52; transform: translateY(-2px); }
 
-.wa-icon {
-width: 20px;
-height: 20px;
-fill: white;
-}
+.wa-icon { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
 
 .wa-note {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 10px;
-color: var(–cream-dim);
-letter-spacing: 1px;
-margin-top: 8px;
+color: #c8b98a;
+letter-spacing: 0.5px;
+margin-top: 12px;
 }
 
-.wa-note span {
-color: var(–gold);
-font-weight: 500;
-}
+.wa-note span { color: #E8CC7A; font-weight: bold; }
 
-/* Also available via */
 .also-contact {
-margin-top: 28px;
-padding-top: 24px;
-border-top: 1px solid rgba(201,168,76,0.1);
+margin-top: 26px;
+padding-top: 22px;
+border-top: 1px solid rgba(201,168,76,0.12);
 display: flex;
 justify-content: center;
-gap: 40px;
+gap: 36px;
 flex-wrap: wrap;
 }
 
 .contact-item { text-align: center; }
 
 .contact-label {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 8px;
 letter-spacing: 3px;
 text-transform: uppercase;
-color: var(–gold-dim);
+color: #a07830;
 margin-bottom: 4px;
 }
 
 .contact-value {
-font-size: 11px;
-color: var(–cream-dim);
-letter-spacing: 0.5px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #D4C9A8;
 }
 
 .footer {
 text-align: center;
-margin-top: 40px;
-padding-top: 24px;
-border-top: 1px solid rgba(201, 168, 76, 0.1);
+margin-top: 36px;
+padding-top: 20px;
+border-top: 1px solid rgba(201,168,76,0.12);
 }
 
 .footer-text {
+font-family: Arial, Helvetica, sans-serif;
 font-size: 9px;
 letter-spacing: 2px;
 text-transform: uppercase;
-color: rgba(201, 168, 76, 0.4);
+color: rgba(201,168,76,0.5);
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-@media (max-width: 600px) {
-.page { padding: 30px 20px 50px; }
-.frame { padding: 40px 24px; }
-.brand-name { font-size: 38px; letter-spacing: 4px; }
+@media (max-width: 580px) {
+.page { padding: 24px 14px 52px; }
+.frame { padding: 36px 20px; }
+.brand-name { font-size: 36px; letter-spacing: 3px; }
+.hero-title { font-size: 26px; }
 .benefits-grid { grid-template-columns: 1fr; }
 .req-list { grid-template-columns: 1fr; }
-.hero-title { font-size: 28px; }
-.also-contact { gap: 20px; }
-.wa-btn { padding: 16px 28px; font-size: 10px; }
+.also-contact { gap: 18px; }
+.wa-btn { padding: 16px 24px; font-size: 12px; }
 }
 </style>
 
 </head>
 <body>
 <div class="page">
-  <div class="frame inner-frame">
+  <div class="frame">
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
 
 ```
-<!-- Brand Header -->
 <div class="brand-section">
-  <div class="brand-eyebrow">Jakarta Fashion & Commercial Talent</div>
+  <div class="brand-eyebrow">Jakarta Fashion &amp; Commercial Talent</div>
   <div class="brand-name">LNWT <span>Management</span></div>
   <div class="brand-sub">Model Agency &amp; Production House</div>
 </div>
 
-<div class="divider">
-  <div class="divider-line"></div>
-  <div class="divider-diamond"></div>
-  <div class="divider-line"></div>
-</div>
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
 
-<!-- Hero -->
 <div class="hero">
   <div class="hero-label">Official Open Recruitment 2025</div>
   <div class="hero-title">We Are Looking for<br><strong>Extraordinary Talent</strong></div>
   <div class="hero-desc">Jakarta · Bogor · Depok · Tangerang · Bekasi</div>
 </div>
 
-<div class="divider">
-  <div class="divider-line"></div>
-  <div class="divider-diamond"></div>
-  <div class="divider-line"></div>
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<div class="opening-letter">
+  Kepada calon talent terpilih,<br><br>
+  Kami membuka kesempatan eksklusif bagi individu berbakat untuk bergabung bersama <em>LNWT Management</em> — model agency dan production house profesional yang berfokus pada industri fashion, swimwear, dan commercial photography di Jakarta dan sekitarnya.<br><br>
+  Jika kamu percaya pada kekuatan ekspresi, keanggunan, dan profesionalisme — <em>kami ingin bertemu denganmu.</em>
 </div>
 
-<!-- Content -->
-<div class="content">
-  <div class="opening-letter">
-    Kepada calon talent terpilih,<br><br>
-    Kami membuka kesempatan eksklusif bagi individu berbakat untuk bergabung bersama <em>LNWT Management</em> — model agency dan production house profesional yang berfokus pada industri fashion, swimwear, dan commercial photography di Jakarta dan sekitarnya.<br><br>
-    Jika kamu percaya pada kekuatan ekspresi, keanggunan, dan profesionalisme — <em>kami ingin bertemu denganmu.</em>
+<div class="section-title">✦ &nbsp;Yang Kami Tawarkan</div>
+<div class="benefits-grid">
+  <div class="benefit-item">
+    <div class="benefit-icon">📸</div>
+    <div class="benefit-title">Portfolio Profesional</div>
+    <div class="benefit-desc">Sesi foto resmi bersama fotografer berpengalaman untuk membangun portofolio berkelas.</div>
   </div>
-
-  <!-- Benefits -->
-  <div class="section-title">✦ &nbsp;Yang Kami Tawarkan</div>
-  <div class="benefits-grid">
-    <div class="benefit-item">
-      <div class="benefit-icon">📸</div>
-      <div class="benefit-title">Portfolio Profesional</div>
-      <div class="benefit-desc">Sesi foto resmi bersama fotografer berpengalaman untuk membangun portofolio berkelas.</div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">💼</div>
-      <div class="benefit-title">Kontrak Transparan</div>
-      <div class="benefit-desc">Sistem kontrak resmi yang melindungi hak dan kesejahteraan seluruh talent kami.</div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🗓️</div>
-      <div class="benefit-title">Baseline Schedule</div>
-      <div class="benefit-desc">Akses ke jadwal event reguler — fashion campaign, lookbook, commercial brand shoot.</div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🎓</div>
-      <div class="benefit-title">Pelatihan & Workshop</div>
-      <div class="benefit-desc">Workshop posing, ekspresi, grooming, dan personal branding secara berkala.</div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">💰</div>
-      <div class="benefit-title">Fee Kompetitif</div>
-      <div class="benefit-desc">Sistem pembayaran tepat waktu dengan rate yang kompetitif sesuai industri.</div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🌟</div>
-      <div class="benefit-title">Jenjang Karir</div>
-      <div class="benefit-desc">Sistem Junior → Prime Roster dengan peluang brand ambassador jangka panjang.</div>
-    </div>
+  <div class="benefit-item">
+    <div class="benefit-icon">💼</div>
+    <div class="benefit-title">Kontrak Transparan</div>
+    <div class="benefit-desc">Sistem kontrak resmi yang melindungi hak dan kesejahteraan seluruh talent kami.</div>
   </div>
-
-  <!-- Requirements -->
-  <div class="section-title">✦ &nbsp;Persyaratan Pendaftaran</div>
-  <div class="requirements">
-    <ul class="req-list">
-      <li>Wanita / Pria, usia 21 – 32 tahun</li>
-      <li>Domisili Jabodetabek (prioritas)</li>
-      <li>Tinggi badan min. 165 cm (wanita) / 175 cm (pria)</li>
-      <li>Memiliki KTP / identitas resmi</li>
-      <li>Portofolio foto minimal 3 foto (boleh foto HP)</li>
-      <li>Bersedia mengikuti proses screening</li>
-      <li>Berpenampilan rapi dan profesional</li>
-      <li>Pengalaman modeling diutamakan, bukan syarat utama</li>
-    </ul>
+  <div class="benefit-item">
+    <div class="benefit-icon">🗓️</div>
+    <div class="benefit-title">Baseline Schedule</div>
+    <div class="benefit-desc">Akses ke jadwal event reguler — fashion campaign, lookbook, commercial brand shoot.</div>
   </div>
+  <div class="benefit-item">
+    <div class="benefit-icon">🎓</div>
+    <div class="benefit-title">Pelatihan & Workshop</div>
+    <div class="benefit-desc">Workshop posing, ekspresi, grooming, dan personal branding secara berkala.</div>
+  </div>
+  <div class="benefit-item">
+    <div class="benefit-icon">💰</div>
+    <div class="benefit-title">Fee Kompetitif</div>
+    <div class="benefit-desc">Sistem pembayaran tepat waktu dengan rate yang kompetitif sesuai industri.</div>
+  </div>
+  <div class="benefit-item">
+    <div class="benefit-icon">🌟</div>
+    <div class="benefit-title">Jenjang Karir</div>
+    <div class="benefit-desc">Sistem Junior → Prime Roster dengan peluang brand ambassador jangka panjang.</div>
+  </div>
+</div>
 
-  <!-- Process -->
-  <div class="process">
-    <div class="section-title">✦ &nbsp;Tahapan Seleksi</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <div class="step-title">Hubungi Kami via WhatsApp</div>
-          <div class="step-desc">Klik tombol di bawah dan kirim pesan dengan format: Nama · Usia · Domisili · Kategori yang diminati.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <div class="step-title">Seleksi Administrasi</div>
-          <div class="step-desc">Tim kami akan me-review pendaftaran dan menghubungi kandidat terpilih dalam 3–5 hari kerja.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <div class="step-title">Casting Day</div>
-          <div class="step-desc">Sesi pemotretan singkat & wawancara langsung di studio LNWT Management, Jakarta.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <div class="step-title">Onboarding & Kontrak</div>
-          <div class="step-desc">Penandatanganan kontrak resmi dan akses ke sistem jadwal event kami.</div>
-        </div>
-      </div>
+<div class="section-title">✦ &nbsp;Persyaratan Pendaftaran</div>
+<div class="requirements">
+  <ul class="req-list">
+    <li>Wanita / Pria, usia 21 – 32 tahun</li>
+    <li>Domisili Jabodetabek (prioritas)</li>
+    <li>Tinggi badan min. 165 cm (wanita) / 175 cm (pria)</li>
+    <li>Memiliki KTP / identitas resmi</li>
+    <li>Portofolio foto minimal 3 foto (boleh foto HP)</li>
+    <li>Bersedia mengikuti proses screening</li>
+    <li>Berpenampilan rapi dan profesional</li>
+    <li>Pengalaman modeling diutamakan, bukan syarat utama</li>
+  </ul>
+</div>
+
+<div class="process">
+  <div class="section-title">✦ &nbsp;Tahapan Seleksi</div>
+  <div class="step">
+    <div class="step-num">01</div>
+    <div>
+      <div class="step-title">Hubungi Kami via WhatsApp</div>
+      <div class="step-desc">Klik tombol di bawah dan kirim pesan: Nama · Usia · Domisili · Kategori yang diminati.</div>
     </div>
   </div>
-
-  <!-- CTA -->
-  <div class="cta-section">
-    <div class="cta-title">Siap Memulai Perjalananmu?</div>
-    <div class="cta-subtitle">Hubungi kami langsung sekarang</div>
-
-    <a class="wa-btn" href="https://wa.me/628953449164187?text=Halo%20LNWT%20Management%2C%20saya%20ingin%20mendaftar%20sebagai%20model.%0A%0ANama%3A%20%0AUsia%3A%20%0ADomisili%3A%20%0AKategori%20yang%20diminati%3A%20" target="_blank">
-      <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      Daftar via WhatsApp
-    </a>
-
-    <div class="wa-note">Ketuk tombol di atas · Pesan otomatis akan terisi · Kirim langsung ke <span>SangAbunaum</span></div>
-
-    <div class="also-contact">
-      <div class="contact-item">
-        <div class="contact-label">PIC / Contact Person</div>
-        <div class="contact-value">SangAbunaum</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">WhatsApp</div>
-        <div class="contact-value">+62 895-3449-64187</div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-label">Area</div>
-        <div class="contact-value">Jakarta & Sekitarnya</div>
-      </div>
+  <div class="step">
+    <div class="step-num">02</div>
+    <div>
+      <div class="step-title">Seleksi Administrasi</div>
+      <div class="step-desc">Tim kami me-review pendaftaran dan menghubungi kandidat terpilih dalam 3–5 hari kerja.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">03</div>
+    <div>
+      <div class="step-title">Casting Day</div>
+      <div class="step-desc">Sesi pemotretan singkat & wawancara langsung di studio LNWT Management, Jakarta.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">04</div>
+    <div>
+      <div class="step-title">Onboarding & Kontrak</div>
+      <div class="step-desc">Penandatanganan kontrak resmi dan akses ke sistem jadwal event kami.</div>
     </div>
   </div>
 </div>
 
-<!-- Footer -->
+<div class="cta-section">
+  <div class="cta-title">Siap Memulai Perjalananmu?</div>
+  <div class="cta-subtitle">Hubungi kami langsung sekarang</div>
+
+  <a class="wa-btn" href="https://wa.me/628953449164187?text=Halo%20LNWT%20Management%2C%20saya%20ingin%20mendaftar%20sebagai%20model.%0A%0ANama%3A%20%0AUsia%3A%20%0ADomisili%3A%20%0AKategori%20yang%20diminati%3A%20" target="_blank">
+    <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Daftar via WhatsApp
+  </a>
+
+  <div class="wa-note">Ketuk tombol di atas · Pesan otomatis terisi · Kirim ke <span>SangAbunaum</span></div>
+
+  <div class="also-contact">
+    <div class="contact-item">
+      <div class="contact-label">Contact Person</div>
+      <div class="contact-value">SangAbunaum</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">WhatsApp</div>
+      <div class="contact-value">+62 895-3449-64187</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Area</div>
+      <div class="contact-value">Jakarta & Sekitarnya</div>
+    </div>
+  </div>
+</div>
+
 <div class="footer">
   <div class="footer-text">LNWT Management · Model Agency & Production House · Jakarta © 2025</div>
 </div>
